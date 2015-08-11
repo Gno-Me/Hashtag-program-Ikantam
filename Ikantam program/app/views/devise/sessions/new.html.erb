@@ -1,0 +1,48 @@
+<div class="banner landing">
+  <h1>Welcome to Matt Pound app</h1>
+  <h3>Sign in</h3>
+
+
+  <% flash.each do |key, value| %>
+    <% if key != 'registration_gateway' %>
+      <div class="alert-block">
+        <%= content_tag :p, value %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <div class="block-sign-in">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="row">
+        <div class="col-xs-7">
+          <div class="wrap-input">
+            <%= f.email_field :email, autofocus: true, placeholder: 'Email' %>
+          </div>
+          <div class="wrap-input">
+            <%= f.password_field :password, autocomplete: "off", placeholder: 'Password' %>
+          </div>
+          <a href=<%= new_password_path(resource_name) %> class="forgot">Forgot password</a>
+          <button class="btn-signin pull-right">Sign in</button>
+        </div>
+        <div class="col-xs-5">
+          <a href=<%= user_omniauth_authorize_path(provider: 'gplus') %> class="btn-google-plus">
+            <i class="icon-google-plus"></i> Sign in with google
+          </a>
+          <a href=<%= user_omniauth_authorize_path(provider: 'twitter') %> class="btn-twitter">
+            <i class="icon-twitter"></i> Sign in with twitter
+          </a>
+          <a href=<%= user_omniauth_authorize_path(provider: 'facebook') %> class="btn-facebook">
+            <i class="icon-facebook"></i> Sign in with facebook
+          </a>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+<%= javascript_include_tag 'bootstrap.file-input' %>
+<%= javascript_include_tag 'chosen.jquery.min' %>
+<%= javascript_include_tag 'cf.min' %>
+<%= javascript_include_tag 'custom' %>
+

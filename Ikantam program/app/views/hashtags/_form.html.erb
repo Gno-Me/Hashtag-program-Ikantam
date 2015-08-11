@@ -1,0 +1,23 @@
+<div class="col-xs-3">
+  <div class="wrap-new-hashtag">
+    <a href="javascript: void(0)" class="btn-matt">+ New hashtag</a>
+    <div class="add-new-hashtag">
+      <%= form_for :hashtag, url: hashtags_path do |f| %>
+        <%= f.text_field :name, placeholder: 'Enter hashtag title',
+          'data-parsley-required' => 'true',
+          'data-parsley-maxlength' => '250',
+          'data-parsley-type' => 'alphanum',
+          'data-parsley-type-message' => '- valid hashtag should contain only letters, numbers or underscores' %>
+        <%= f.submit '+', class: 'btn-add hashtag-add' %>
+      <% end %>
+    </div>
+  </div>
+
+  <% if @hashtags.count > 0 %>
+    <ul class="right-menu scroll-pane">
+      <% @hashtags.each do |hashtag| %>
+        <li><%= link_to('# ' + hashtag.name, hashtag_path(hashtag)) %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>

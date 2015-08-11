@@ -1,0 +1,81 @@
+/*! 
+ *  Written for: Light weight customized checkboxes and radio buttons jquery plugin
+ *  Author: @ElmahdiMahmoud
+ *  updated: 03.12.13
+ *  license: under MIT License - http://www.opensource.org/licenses/mit-license.php
+ */
+label.ccbx,
+label.crbtn  {
+    display: inline-block;
+    cursor: pointer;
+    overflow: hidden;
+    padding:3px 0;
+}
+label.ccbx input[type="checkbox"],
+label.crbtn input[type="radio"] { display: none; }
+.ccbx span { 
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 10px;
+    float: left;
+    position: relative;
+    top: -1px;
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 4px;
+}
+.ccbx.checked span { background-color: transparent; border-color: #fff; }
+.ccbx.disabled,
+.crbtn.disabled    { color: #ddd; }
+.ccbx.disabled span,
+.crbtn.disabled span,
+.ccbx.disabled:hover span { border-color: #ddd; }
+label.ccbx.disabled,
+label.ccbx.disabled *,
+label.crbtn.disabled,
+label.crbtn.disabled *        { cursor:default; }
+.ccbx.checked.disabled span   { background-color: #ddd; }
+.crbtn.pushed.disabled span i { box-shadow:inset 0 0 9px #ddd; }
+.ccbx i {
+    background: url('../images/ccbx.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: absolute;
+    left: 2px;
+    bottom: -20px;
+    width: 15px;
+    height: 15px;
+    opacity: 0;
+}
+.ccbx.checked span i {
+    bottom: 2px;
+    opacity: 1;
+}
+.crbtn span {
+    width: 13px;
+    height: 13px;
+    display: inline-block;
+    float: left;
+    overflow: hidden;
+    margin-top: 2px;
+    margin-right: 14px;
+    position: relative;
+    border-radius: 100%;
+    background-color: transparent;
+    border: 1px solid #C4C4C4;
+}
+.crbtn.pushed span {
+    border: 1px solid #6F98E0;
+}
+.crbtn span i {
+    background-color:transparent;
+    width: 5px;
+    height: 5px;
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    border-radius: 100%;
+}
+.crbtn.pushed span i { background-color: #6F98E0; }

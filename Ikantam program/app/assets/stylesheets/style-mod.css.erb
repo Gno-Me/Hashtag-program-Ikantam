@@ -1,0 +1,19 @@
+/*
+  Use as .erb to enable assets compilation
+  asset_path function is used to generate appropriate urls for images/fonts
+ */
+/* icons */
+[class^="icn-"],
+[class*="icn-"] {
+  background-image: url(<%= asset_path "sprite.png" %>);
+}
+.banner.landing {
+  background-image: url(<%= asset_path "banner.jpg" %>);
+}
+.banner {
+   filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=<%= asset_path "banner.jpg" %>, sizingMethod='scale');
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=<%= asset_path "banner.jpg" %>, sizingMethod='scale')";
+}
+.ccbx i {
+  background-image: url(<%= asset_path 'ccbx.png' %>);
+}

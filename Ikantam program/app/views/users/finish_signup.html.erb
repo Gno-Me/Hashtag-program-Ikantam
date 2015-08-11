@@ -1,0 +1,27 @@
+<div id="add-email" class="container">
+
+  <% if current_user.errors.full_messages.count > 0 %>
+    <div class="alert-block">
+      <% current_user.errors.full_messages.each do |msg| %>
+        <p><%= msg %></p>
+      <% end %>
+    </div>
+  <% end %>
+
+  <h1>Add Email</h1>
+  <%= form_for(current_user, :as => 'user', :url => patch_finish_signup_path, :html => { role: 'form'}) do |f| %>
+    <div class="form-group">
+      <%= f.label :email %>
+      <div class="controls">
+        <%= f.text_field :email, :autofocus => true, 
+          class: 'form-control input-lg',
+          placeholder: 'Example: email@me.com',
+          value: params.try(:[], :user).try(:[], :email) || '' %>
+        <p class="help-block">Please confirm your email address. No spam.</p>
+      </div>
+    </div>
+    <div class="actions">
+      <%= f.submit 'Continue', :class => 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>

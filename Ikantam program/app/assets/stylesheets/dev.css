@@ -1,0 +1,64 @@
+/* header */
+
+.header-menu .dropdown-toggle {
+  height: 60px;
+  padding: 0;
+  font: 14px/60px "OpenSans-Regular";
+  color: #FFF;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.header-menu .dropdown-menu {
+  background-color: #282D2F;
+  border-radius: 0px;
+  border: none;
+  top: 95%;
+}
+
+.header-menu .dropdown-menu > li > a {
+  color: #FFFFFF;
+}
+
+.header-menu .dropdown-menu > li > a:hover {
+  color: #282D2F;
+}
+
+/* posts page */
+
+.no-hashtags {
+  text-align: center;
+  margin-top: -15px;
+}
+
+.avatar-post {
+  width: 40px;
+  height: 40px;
+  background: #E9EAED;
+}
+
+.avatar-post img {
+  max-width: 40px;
+  max-height: 40px;
+}
+
+span.post-username {
+  color: inherit;
+  font-size: inherit;
+}
+
+.post-time {
+  font-size: 12px;
+  color: #999;
+}
+.post-time:hover {
+  text-decoration: none;
+}
+
+.post-body p {
+  word-wrap: break-word;
+}
+
+.post-body video {
+  background: #E9EAED;
+}

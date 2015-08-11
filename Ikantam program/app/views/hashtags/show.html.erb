@@ -1,0 +1,178 @@
+<div class="wrap">
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="col-xs-12">
+        <div class="main-content">
+          <div class="row">
+            <div class="col-xs-9">
+              <div class="row social-networks">
+                <div class="col-xs-12">
+                  <% if @hashtags.count > 0 %>
+
+                    <form action="" class="cf">
+
+                      <% @hashtag.grabs.each do |grab| %>
+
+
+
+                        <a href="javascript: void(0)">
+                          <span class="inner-block btn-<%= grab.source.dasherize %>">
+                            <i class="icon-<%= grab.source.dasherize %>"></i>
+                            <span class="count"><%= grab.number_of_posts.to_i %></span>
+                          </span>
+                          <span class="ccbx-social btn-<%= grab.source.dasherize %>">
+                            <label class="ccbx">
+                              <%= grab.source.humanize %>
+                              <input type="checkbox" name="<%= grab.source %>">
+                            </label>
+                          </span>
+                        </a>
+
+                      <% end %>
+                      
+                    <!--
+                      <a href="">
+                        <span class="inner-block btn-google-plus">
+                          <i class="icon-google-plus"></i>
+                          <span class="count">301</span>
+                        </span>
+                        <span class="ccbx-social btn-google-plus">
+                          <label class="ccbx">
+                            Google plus
+                            <input type="checkbox" name="google plus">
+                          </label>
+                        </span>
+                      </a>
+
+                      <a href="">
+                        <span class="inner-block btn-twitter">
+                          <i class="icon-twitter"></i>
+                          <span class="count">2,934</span>
+                        </span>
+                        <span class="ccbx-social btn-twitter">
+                          <label class="ccbx">
+                            Twitter
+                            <input type="checkbox" name="twitter">
+                          </label>
+                        </span>
+                      </a>
+
+                      <a href="">
+                        <span class="inner-block btn-facebook">
+                          <i class="icon-facebook"></i>
+                          <span class="count">92</span>
+                        </span>
+                        <span class="ccbx-social btn-facebook">
+                          <label class="ccbx">
+                            Facebook
+                            <input type="checkbox" name="facebook">
+                          </label>
+                        </span>
+                      </a>
+
+                      <a href="">
+                        <span class="inner-block btn-instagram">
+                          <i class="icon-instagram"></i>
+                          <span class="count">1,977</span>
+                        </span>
+                        <span class="ccbx-social btn-instagram">
+                          <label class="ccbx">
+                            Instagram
+                            <input type="checkbox" name="instagram">
+                          </label>
+                        </span>
+                      </a>
+
+                      <a href="">
+                        <span class="inner-block btn-tumblr">
+                          <i class="icon-tumblr"></i>
+                          <span class="count">6,761</span>
+                        </span>
+                        <span class="ccbx-social btn-tumblr">
+                          <label class="ccbx">
+                            Tumblr
+                            <input type="checkbox" name="tumblr">
+                          </label>
+                        </span>
+                      </a>
+
+                      <a href="">
+                        <span class="inner-block btn-foursquare">
+                          <i class="icon-foursquare"></i>
+                          <span class="count">4,121</span>
+                        </span>
+                        <span class="ccbx-social btn-foursquare">
+                          <label class="ccbx">
+                            Foursquare
+                            <input type="checkbox" name="foursquare">
+                          </label>
+                        </span>
+                      </a>
+
+                      <a href="">
+                        <span class="inner-block btn-vine">
+                          <i class="icon-vine"></i>
+                          <span class="count">654</span>
+                        </span>
+                        <span class="ccbx-social btn-vine">
+                          <label class="ccbx">
+                            Vine
+                            <input type="checkbox" name="vine">
+                          </label>
+                        </span>
+                      </a>
+                  -->
+                    </form>
+
+                  <% else %>
+                    <div class="no-hashtags">
+                      <h3>Add new hashtag to start gathering information &gt;</h3>
+                    </div>
+                  <% end %>
+                    
+                </div>
+              </div>
+
+              <% if @hashtag %>
+
+                <div class="header">
+                  <h1># <%= @hashtag.name %></h1>
+
+                  <ul class="block-remove">
+                    <li class="btn-rem-hash">
+                      <%= link_to('Remove hashtag', hashtag_path(@hashtag), method: :delete) %>
+                    </li>
+                    <li class="btn-remove pull-right"><i class="icn-remove"></i></li>
+                  </ul>
+                </div>
+
+                <% if @posts.count > 0 %>
+
+                  <%= render partial: 'post', collection: @posts %>
+
+                  <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+
+                <% else %>
+
+                  <div class="no-hashtags">
+                    <h3>No posts yet</h3>
+                  </div>
+
+                <% end %>                
+
+              <% end %>
+
+            </div>
+
+            <%= render partial: 'hashtags/form' %>
+            
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag 'controllers/social/show.dep' %>
